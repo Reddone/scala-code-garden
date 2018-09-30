@@ -1,0 +1,20 @@
+# IDEA specific
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/.scala_dependencies
+/.worksheet
+/RUNNING_PID
+mainRunner
+
+# Project specific
+project/project
+tmp
+dist
+
+# MacOS specific
+.DS_Store
