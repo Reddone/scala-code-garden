@@ -13,8 +13,8 @@ object MainRunner extends App with DefaultRepoBuilder with DefaultRepoDownloader
 
   val dockerImage = "ubuntu:latest"
 
-  val build1 = Build("http://github", LocalContext)
-  val build2 = Build("http://github", DockerContext)
+  val build1 = Build("http://firstrepository", LocalContext)
+  val build2 = Build("http://secondrepository", DockerContext)
 
   val buildList = List(build1, build2)
 

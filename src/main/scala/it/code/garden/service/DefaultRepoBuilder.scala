@@ -3,10 +3,13 @@ package it.code.garden.service
 import it.code.garden.magnet.BuildMagnet
 import it.code.garden.model._
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
 trait DefaultRepoBuilder extends RepoBuilder[Future] { self: RepoDownloader[Future] =>
+
   private def completeBuild(magnet: BuildMagnet): magnet.Result = magnet.get
+
+  implicit def ec: ExecutionContext
 
   def dockerImage: String
 
