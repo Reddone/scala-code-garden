@@ -11,13 +11,15 @@ trait DefaultRepoBuilder extends RepoBuilder[Future] { self: RepoDownloader[Futu
 
   implicit def ec: ExecutionContext
 
+  def localMaven: String
+
   def dockerImage: String
 
   override def build(build: Build): Future[BuildMagnet#Result] = {
     val repoPath = downloadRepo(build.repoURL)
     repoPath.map(path => {
       build match {
-        case Build(_, LocalContext)  => completeBuild(LocalEnv(path))
+        case Build(_, LocalContext)  => completeBuild(LocalEnv(path, localMaven))
         case Build(_, DockerContext) => completeBuild(DockerEnv(path, dockerImage))
         case _                       => throw new RuntimeException("Build type not supported")
       }
