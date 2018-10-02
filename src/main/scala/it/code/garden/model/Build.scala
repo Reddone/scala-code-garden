@@ -1,3 +1,8 @@
 package it.code.garden.model
 
-case class Build(repoUrl: String, location: String)
+sealed trait Context
+
+case object LocalContext  extends Context
+case object DockerContext extends Context
+
+case class Build(repoURL: String, context: Context)

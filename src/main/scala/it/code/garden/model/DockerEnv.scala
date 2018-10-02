@@ -1,3 +1,3 @@
 package it.code.garden.model
 
-case class DockerEnv(baseImage: String, dockerFilePath: String)
+case class DockerEnv(repoPath: String, dockerImage: String)

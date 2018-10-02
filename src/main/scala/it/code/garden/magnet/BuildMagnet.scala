@@ -17,18 +17,18 @@ object BuildMagnet {
 
     override def get =
       IO {
-        val cmd = "echo sync"
+        val cmd = "echo local"
         cmd.!
       }.unsafeRunSync()
   }
 
   implicit def buildOnDockerContainer(env: DockerEnv): BuildMagnet = new BuildMagnet {
-    override type Result = String
+    override type Result = Int
 
     override def get =
       IO {
-        val cmd = "echo async"
-        cmd.!!
+        val cmd = "echo docker"
+        cmd.!
       }.unsafeRunSync()
   }
 }

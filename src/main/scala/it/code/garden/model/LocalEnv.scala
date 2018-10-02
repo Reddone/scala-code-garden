@@ -1,3 +1,3 @@
 package it.code.garden.model
 
-class LocalEnv()
+case class LocalEnv(repoPath: String)
