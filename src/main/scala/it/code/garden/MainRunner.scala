@@ -12,7 +12,7 @@ object MainRunner extends App with DefaultRepoBuilder with DefaultRepoDownloader
 
   implicit val ec: ExecutionContext = Implicits.global
 
-  val localMaven  = "/home/skynet/Applications/maven"
+  val localMaven  = "/home/skynet/Applications/maven/bin"
   val dockerImage = "maven:latest"
 
   val build1 = Build("http://firstrepository", LocalContext)
